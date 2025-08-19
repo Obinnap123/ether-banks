@@ -5,7 +5,7 @@ import GooglePlayButton from "./GooglePlayButton";
 export default function Footer() {
   return (
     <footer className="bg-black text-gray-300 px-3 sm:px-4 md:px-4 lg:px-8 py-6 sm:py-8 md:py-12 lg:py-20 space-y-4 sm:space-y-6 md:space-y-8">
-           {/* 🔹 Moving Carousel - Mobile Safe (No Horizontal Scroll) */}
+           {/*  Moving Carousel - Mobile Safe (No Horizontal Scroll) */}
       <div className="overflow-hidden pb-2 sm:pb-3">
         <div className="animate-marquee inline-flex items-center space-x-4 sm:space-x-6 md:space-x-8 lg:space-x-12 whitespace-nowrap">
           <span className="text-xs text-gray-400">Price at Xapo Bank</span>
