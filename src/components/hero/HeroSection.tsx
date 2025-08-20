@@ -1,5 +1,4 @@
 import Image from "next/image";
-// everythi
 export default function HeroSection() {
   return (
     <section className="flex flex-col items-center justify-center">
