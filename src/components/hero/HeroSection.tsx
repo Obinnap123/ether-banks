@@ -3,10 +3,10 @@ export default function HeroSection() {
   return (
     <section className="flex flex-col items-center justify-center w-full">
       {/* ASCII Typography Section - Responsive */}
-      <div className="flex flex-col items-center py-8 md:py-12 lg:py-20 px-4 md:px-8 xl:px-20 2xl:px-32 w-full">
+      <div className="flex flex-col items-center py-2 md:py-12 lg:py-20 px-4 md:px-8 xl:px-20 2xl:px-32 w-full">
         <div className="max-w-[1280px] mx-auto w-full flex justify-center">
           {/* Exact ASCII Layout with precise character alignment - Responsive */}
-          <div className="text-white font-normal text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight font-mono">
+          <div className="text-white font-normal text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight font-mono pb-5 md:pb-0">
             {/* Line 1: THE ONLY */}
             <div className="whitespace-pre">THE ONLY</div>
 
@@ -32,7 +32,7 @@ export default function HeroSection() {
       </div>
 
       {/* Full Width Background Image Section - Responsive */}
-      <div className="relative w-full h-[100vh] sm:h-[110vh] md:h-[120vh] lg:h-[130vh] xl:h-[140vh]">
+      <div className="relative w-full h-[70vh] sm:h-[80vh] md:h-[100vh] lg:h-[120vh] xl:h-[130vh]">
         <Image
           src="/man-img.png"
           alt="Hero Background"

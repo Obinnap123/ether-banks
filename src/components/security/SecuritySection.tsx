@@ -21,7 +21,7 @@ export default function SecuritySection() {
                 alt="Security Infrastructure"
                 width={600}
                 height={500}
-                className="w-full h-70 rounded-lg object-cover"
+                className="w-full h-auto lg:h-70 rounded-lg object-cover"
                 priority
               />
             </div>
