@@ -4,7 +4,9 @@ import GooglePlayButton from "./GooglePlayButton";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-gray-300 px-3 sm:px-4 md:px-4 lg:px-8 py-6 sm:py-8 md:py-12 lg:py-20 space-y-4 sm:space-y-6 md:space-y-8">
+    <footer className="bg-black text-gray-300">
+      <div className="px-4 md:px-4 lg:px-8 py-6 sm:py-8 md:py-12 lg:py-20">
+        <div className="mx-auto max-w-7xl space-y-4 sm:space-y-6 md:space-y-8">
            {/*  Moving Carousel - Mobile Safe (No Horizontal Scroll) */}
       <div className="overflow-hidden pb-2 sm:pb-3">
         <div className="animate-marquee inline-flex items-center space-x-4 sm:space-x-6 md:space-x-8 lg:space-x-12 whitespace-nowrap">
@@ -130,9 +132,13 @@ export default function Footer() {
           </ul>
         </div>
       </div>
+        </div>
+      </div>
 
-      {/* Modern Mobile-First Footer Section - Clean Left Alignment */}
-      <div className="-mx-3 sm:-mx-4 md:-mx-4 lg:-mx-8 px-3 sm:px-4 md:px-4 lg:px-8 pb-2 sm:pb-3 pt-6 sm:pt-8 md:pt-12 lg:pt-20" style={{ backgroundColor: 'rgba(2, 7, 11, 1)' }}>
+      {/* Modern Mobile-First Footer Section - Clean Left Alignment - FULL WIDTH */}
+      <div className="w-full" style={{ backgroundColor: 'rgba(2, 7, 11, 1)' }}>
+        <div className="px-4 md:px-4 lg:px-8 pb-2 sm:pb-3 pt-6 sm:pt-8 md:pt-12 lg:pt-20">
+          <div className="mx-auto max-w-7xl">
         
         {/* Mobile: Clean stacked layout with consistent left alignment */}
         <div className="block sm:hidden space-y-6 mt-4 mb-8">
@@ -213,10 +219,14 @@ export default function Footer() {
           </div>
         </div>
         
+          </div>
+        </div>
       </div>
 
-      {/* Legal text - Fixed mobile horizontal scroll */}
-      <div className="text-xs space-y-4 pt-6 leading-relaxed -mx-3 sm:-mx-4 md:-mx-4 lg:-mx-8 px-3 sm:px-4 md:px-4 lg:px-8 -mt-8" style={{ backgroundColor: 'rgba(14, 14, 14, 1)', borderTop: '1px solid rgba(14, 14, 14, 1)', color: 'rgba(194, 194, 194, 1)' }}>
+      {/* Legal text - Fixed mobile horizontal scroll - FULL WIDTH */}
+      <div className="w-full" style={{ backgroundColor: 'rgba(14, 14, 14, 1)', borderTop: '1px solid rgba(14, 14, 14, 1)', color: 'rgba(194, 194, 194, 1)' }}>
+        <div className="px-4 md:px-4 lg:px-8 pt-6">
+          <div className="mx-auto max-w-7xl text-xs space-y-4 leading-relaxed">
         <p>
           <sup>1</sup>Eligible fiat deposits are protected by the Gibraltar Deposit Guarantee Scheme up to a maximum of the US Dollar equivalent of EUR 100,000 (subject to prevailing exchange rates on the compensation date). Bitcoin deposits are not covered by the Gibraltar Deposit Guarantee Scheme.
         </p>
@@ -259,6 +269,8 @@ export default function Footer() {
           Xapo VASP Limited is a company registered and incorporated in Gibraltar with company No. 118088 and regulated by the Gibraltar Financial Services Commission under the Financial Services Act 2019 as a 'DLT institution' under Permission No. 26061.
         </p>
         <p>© Xapo Holdings Limited 2025. All Rights Reserved.</p>
+          </div>
+        </div>
       </div>
     </footer>
   );

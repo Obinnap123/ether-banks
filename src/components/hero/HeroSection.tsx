@@ -3,8 +3,8 @@ export default function HeroSection() {
   return (
     <section className="flex flex-col items-center justify-center w-full">
       {/* ASCII Typography Section - Responsive */}
-      <div className="flex flex-col items-center py-2 md:py-12 lg:py-20 px-4 md:px-8 xl:px-20 2xl:px-32 w-full">
-        <div className="max-w-[1280px] mx-auto w-full flex justify-center">
+      <div className="flex flex-col items-center py-2 md:py-12 lg:py-20 px-4 md:px-4 lg:px-8 w-full">
+        <div className="max-w-7xl mx-auto w-full flex justify-center">
           {/* Exact ASCII Layout with precise character alignment - Responsive */}
           <div className="text-white font-normal text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight font-mono pb-5 md:pb-0">
             {/* Line 1: THE ONLY */}

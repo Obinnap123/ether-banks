@@ -3,8 +3,8 @@ import Image from "next/image";
 export default function SecuritySection() {
   return (
     <section className="bg-black text-white mt-8 lg:mt-10 py-12 md:py-16 lg:py-20 w-full flex justify-center">
-      <div className="px-4 md:px-8 lg:px-16 xl:px-20 2xl:px-32 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center justify-center max-w-[1280px] mx-auto">
+      <div className="px-4 md:px-4 lg:px-8 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center justify-center max-w-7xl mx-auto">
           
           {/* Left Column - Heading + Image */}
           <div className="space-y-6 md:space-y-8 flex flex-col items-start text-left lg:items-start">
