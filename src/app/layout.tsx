@@ -4,7 +4,7 @@ import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 
 export const metadata: Metadata = {
-  title: "Xapo-Style Navbar",
+  title: "Ethereum Banking",
   description: "UI Build",
 };
 
@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <Navbar />
-        <main className="mx-auto max-w-7xl px-4 py-1" style={{ paddingTop: '170px' }}>{children}</main>
+        <main style={{ paddingTop: '170px' }}>{children}</main>
         <Footer />
       </body>
     </html>
