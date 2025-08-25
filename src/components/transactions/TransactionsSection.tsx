@@ -547,6 +547,75 @@ export default function TransactionsSection() {
         </div>
       </div>
     </section>
+
+    {/* Fifth Transaction Section - Phone 5 */}
+    <section className="bg-black text-white w-full overflow-x-hidden">
+      <div className="px-4 md:px-4 lg:px-8 py-6 mt-6 lg:mt-15">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-0 items-start">
+          
+          {/* Center Section - Phone Image (First on mobile) */}
+          <div className="flex justify-center items-center min-h-0 lg:min-h-0 lg:order-2">
+            <div className="max-w-xs md:max-w-sm">
+              <Image
+                src="/phone-5.png"
+                alt="Phone Mockup"
+                width={300}
+                height={600}
+                className="w-full h-[450px] md:h-[500px] lg:h-[550px] object-cover"
+                priority
+              />
+            </div>
+          </div>
+
+          {/* Left Section - 33% (Second on mobile) */}
+          <div className="flex flex-col space-y-4 lg:pr-8 mt-4 md:mt-20 lg:mt-35 lg:order-1">
+            {/* Tiny gray text */}
+            <p className="text-xs text-gray-500 uppercase tracking-widest font-medium">
+              LOCK UP AND GO
+            </p>
+            
+            {/* Large headline */}
+            <h1 className="text-lg md:text-xl lg:text-3xl font-normal text-white leading-tight">
+              <span className="font-bold">HOLD THE KEYS TO</span><br />
+              <span className="font-normal">YOUR BTC VAULT</span>
+            </h1>
+            
+            {/* Underlined link */}
+            <a 
+              href="#" 
+              className="inline-flex items-center gap-1 text-white hover:text-gray-300 transition-colors duration-200 group w-fit"
+            >
+              <span className="text-sm font-medium border-b border-white group-hover:border-gray-300 transition-colors duration-200">
+                How Keys work
+              </span>
+              <Image
+                src="/circle-arrow-img.svg"
+                alt="Arrow"
+                width={20}
+                height={20}
+                className="w-5 h-5"
+              />
+            </a>
+          </div>
+
+          {/* Right Section - 33% (Third on mobile) */}
+          <div className="flex flex-col space-y-3 lg:pl-8 mt-4 md:mt-2 lg:mt-14 lg:order-3">
+            {/* Bold heading */}
+            <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-white leading-tight">
+              You're in control with your hardware security key.
+            </h3>
+            
+            {/* Paragraph */}
+            <p className="text-sm text-gray-300 leading-relaxed mt-4">
+              Add a hardware security key to safeguard ETH Vault withdrawals, and remain protected even if someone gains access to your phone and PIN. With this additional layer of physical security, you decide when—and if—your Ethereum moves.
+            </p>
+          </div>
+          
+        </div>
+        </div>
+      </div>
+    </section>
     </>
   );
 }
