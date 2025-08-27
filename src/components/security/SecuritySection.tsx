@@ -1,11 +1,33 @@
+"use client";
+
 import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 export default function SecuritySection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+
+  // Continuous scroll-based animations
+  const imageY = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const textY = useTransform(scrollYProgress, [0, 1], [30, -30]);
+  const sectionOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
+
   return (
-    <section className="bg-black text-white w-full  flex items-center justify-center">
+    <motion.section 
+      ref={sectionRef}
+      className="bg-black text-white w-full flex items-center justify-center"
+      style={{ opacity: sectionOpacity }}
+    >
   <div className="flex flex-col lg:flex-row items-center justify-center w-full max-w-6xl px-4 py-10 rounded-lg mt-4 md:mt-8 lg:mt-15 shadow-lg bg-black/90 gap-8">
         {/* Left Side: Image + Heading */}
-        <div className="flex flex-col w-full lg:w-1/2 mb-6 lg:mb-0">
+        <motion.div 
+          className="flex flex-col w-full lg:w-1/2 mb-6 lg:mb-0"
+          style={{ y: imageY }}
+        >
           {/* Main Heading above Image, left-aligned and aligned with image's left edge */}
             <h2 className="text-xl md:text-2xl font-bold text-left uppercase mb-4 ml-0 lg:ml-[40px] xl:ml-12">
             THE SAFEST PLACE FOR YOUR <span className="block">ETHEREUM <span className="font-normal">FULL STOP</span></span>
@@ -20,9 +42,12 @@ export default function SecuritySection() {
               priority
             />
           </div>
-        </div>
+        </motion.div>
         {/* Right Side: Horizontal Line + Section Label + Text Content */}
-        <div className="flex flex-col items-start lg:items-start text-left w-full lg:w-1/2">
+        <motion.div 
+          className="flex flex-col items-start lg:items-start text-left w-full lg:w-1/2"
+          style={{ y: textY }}
+        >
           {/* Horizontal Line and Section Label grouped together at the top */}
           <div className="w-full mb-8 lg:mb-13">
             <hr className="border-gray-600 border-t w-full hidden lg:block mb-3" />
@@ -56,8 +81,8 @@ export default function SecuritySection() {
               />
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }

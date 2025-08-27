@@ -1,13 +1,49 @@
+"use client";
+
 import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 export default function TransactionsSection() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  // Improved transforms with better visibility and layering
+  const card1Scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
+  const card1Opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0.3]);
+  
+  const card2Y = useTransform(scrollYProgress, [0.1, 0.3], ["100vh", "0vh"]);
+  const card2Scale = useTransform(scrollYProgress, [0.1, 0.3, 0.5], [0.95, 1, 0.95]);
+  const card2Opacity = useTransform(scrollYProgress, [0.1, 0.2, 0.4, 0.5], [0, 1, 1, 0.3]);
+  
+  const card3Y = useTransform(scrollYProgress, [0.3, 0.5], ["100vh", "0vh"]);
+  const card3Scale = useTransform(scrollYProgress, [0.3, 0.5, 0.7], [0.95, 1, 0.95]);
+  const card3Opacity = useTransform(scrollYProgress, [0.3, 0.4, 0.6, 0.7], [0, 1, 1, 0.3]);
+  
+  const card4Y = useTransform(scrollYProgress, [0.5, 0.7], ["100vh", "0vh"]);
+  const card4Scale = useTransform(scrollYProgress, [0.5, 0.7, 0.9], [0.95, 1, 0.95]);
+  const card4Opacity = useTransform(scrollYProgress, [0.5, 0.6, 0.8, 0.9], [0, 1, 1, 0.3]);
+  
+  const card5Y = useTransform(scrollYProgress, [0.7, 0.9], ["100vh", "0vh"]);
+  const card5Opacity = useTransform(scrollYProgress, [0.7, 0.8, 1], [0, 1, 1]);
+
   return (
-    <>
-      {/* First Transaction Section - Phone 1 */}
-      <section className="bg-black text-white w-full overflow-x-hidden">
-        <div className="px-4 md:px-4 lg:px-8 py-6 mt-6 lg:mt-15">
-          <div className="mx-auto max-w-7xl">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-0 items-start">
+    <div ref={containerRef} className="relative hide-scrollbar" >
+      {/* First Transaction Section - Phone 1 - STICKY BASE */}
+      <motion.section 
+        className="bg-black text-white w-full sticky top-0 h-full"
+        style={{ 
+          scale: card1Scale,
+          opacity: card1Opacity,
+          zIndex: 1
+        }}
+      >
+        <div className="px-4 md:px-4 lg:px-8 py-6 pt-10  lg:pt-15 h-full flex items-center">
+          <div className="mx-auto w-full px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-0 items-center h-full">
           
           {/* Center Section - Phone Image (First on mobile) */}
           <div className="flex justify-center items-center min-h-0 lg:min-h-0 lg:order-2">
@@ -56,7 +92,7 @@ export default function TransactionsSection() {
             <div className="space-y-1 mt-4">
               {/* Line 1 */}
               <div className="relative">
-                <hr className="hidden lg:block border-gray-700 border-t lg:w-[calc(100%+8rem)] lg:ml-[-4rem] xl:w-[calc(100%+11.7rem)] xl:ml-[-6rem]" />
+                <hr className="hidden lg:block border-gray-700 border-t w-full" />
               </div>
               
               {/* Text 1 */}
@@ -66,7 +102,7 @@ export default function TransactionsSection() {
               
               {/* Line 2 */}
               <div className="relative">
-                <hr className="hidden lg:block border-gray-700 border-t lg:w-[calc(100%+8rem)] lg:ml-[-4rem] xl:w-[calc(100%+11.7rem)] xl:ml-[-6rem]" />
+                <hr className="hidden lg:block border-gray-700 border-t w-full" />
               </div>
               
               {/* Text 2 */}
@@ -76,7 +112,7 @@ export default function TransactionsSection() {
               
               {/* Line 3 */}
               <div className="relative">
-                <hr className="hidden lg:block border-gray-700 border-t lg:w-[calc(100%+8rem)] lg:ml-[-4rem] xl:w-[calc(100%+11.7rem)] xl:ml-[-6rem]" />
+                <hr className="hidden lg:block border-gray-700 border-t w-full" />
               </div>
               
               {/* Text 3 */}
@@ -86,7 +122,7 @@ export default function TransactionsSection() {
               
               {/* Line 4 */}
               <div className="relative">
-                <hr className="hidden lg:block border-gray-700 border-t lg:w-[calc(100%+8rem)] lg:ml-[-4rem] xl:w-[calc(100%+11.7rem)] xl:ml-[-6rem]" />
+                <hr className="hidden lg:block border-gray-700 border-t w-full" />
               </div>
               
               {/* Text 4 */}
@@ -96,7 +132,7 @@ export default function TransactionsSection() {
               
               {/* Line 5 */}
               <div className="relative">
-                <hr className="hidden lg:block border-gray-700 border-t lg:w-[calc(100%+8rem)] lg:ml-[-4rem] xl:w-[calc(100%+11.7rem)] xl:ml-[-6rem]" />
+                <hr className="hidden lg:block border-gray-700 border-t w-full" />
               </div>
             </div>
           </div>
@@ -123,7 +159,7 @@ export default function TransactionsSection() {
             <div className="hidden lg:block space-y-1">
               {/* Line 1 */}
               <div className="relative">
-                <hr className="border-gray-700 border-t lg:w-[calc(100%+6rem)] lg:ml-[-3rem] xl:w-[calc(100%+8rem)] xl:ml-[-6rem]" />
+                <hr className="border-gray-700 border-t w-full" />
               </div>
               
               {/* Empty Text Space 1 */}
@@ -133,7 +169,7 @@ export default function TransactionsSection() {
               
               {/* Line 2 */}
               <div className="relative">
-                <hr className="border-gray-700 border-t lg:w-[calc(100%+6rem)] lg:ml-[-3rem] xl:w-[calc(100%+8rem)] xl:ml-[-6rem]" />
+                <hr className="border-gray-700 border-t w-full" />
               </div>
               
               {/* Empty Text Space 2 */}
@@ -143,7 +179,7 @@ export default function TransactionsSection() {
               
               {/* Line 3 */}
               <div className="relative">
-                <hr className="border-gray-700 border-t lg:w-[calc(100%+6rem)] lg:ml-[-3rem] xl:w-[calc(100%+8rem)] xl:ml-[-6rem]" />
+                <hr className="border-gray-700 border-t w-full" />
               </div>
               
               {/* Empty Text Space 3 */}
@@ -153,7 +189,7 @@ export default function TransactionsSection() {
               
               {/* Line 4 */}
               <div className="relative">
-                <hr className="border-gray-700 border-t lg:w-[calc(100%+6rem)] lg:ml-[-3rem] xl:w-[calc(100%+8rem)] xl:ml-[-6rem]" />
+                <hr className="border-gray-700 border-t w-full" />
               </div>
               
               {/* Empty Text Space 4 */}
@@ -163,7 +199,7 @@ export default function TransactionsSection() {
               
               {/* Line 5 */}
               <div className="relative">
-                <hr className="border-gray-700 border-t lg:w-[calc(100%+6rem)] lg:ml-[-3rem] xl:w-[calc(100%+8rem)] xl:ml-[-6rem]" />
+                <hr className="border-gray-700 border-t w-full" />
               </div>
             </div>
           </div>
@@ -171,12 +207,20 @@ export default function TransactionsSection() {
         </div>
         </div>
       </div>
-    </section>
+    </motion.section>
 
-    {/* Second Transaction Section - Phone 2 */}
-    <section className="bg-black text-white w-full overflow-x-hidden">
+    {/* Second Transaction Section - Phone 2 - SLIDES FROM BOTTOM */}
+    <motion.section 
+      className="bg-black text-white w-full overflow-hidden sticky top-0 h-full"
+      style={{ 
+        y: card2Y,
+        scale: card2Scale,
+        opacity: card2Opacity,
+        zIndex: 2
+      }}
+    >
       <div className="px-4 md:px-4 lg:px-8 py-6 mt-6 lg:mt-15">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto w-full px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-0 items-start">
           
           {/* Center Section - Phone Image (First on mobile) */}
@@ -227,7 +271,7 @@ export default function TransactionsSection() {
             <div className="space-y-1 mt-4">
               {/* Line 1 */}
               <div className="relative">
-                <hr className="hidden lg:block border-gray-700 border-t lg:w-[calc(100%+8rem)] lg:ml-[-4rem] xl:w-[calc(100%+11.7rem)] xl:ml-[-6rem]" />
+                <hr className="hidden lg:block border-gray-700 border-t w-full" />
               </div>
               
               {/* Text 1 */}
@@ -237,7 +281,7 @@ export default function TransactionsSection() {
               
               {/* Line 2 */}
               <div className="relative">
-                <hr className="hidden lg:block border-gray-700 border-t lg:w-[calc(100%+8rem)] lg:ml-[-4rem] xl:w-[calc(100%+11.7rem)] xl:ml-[-6rem]" />
+                <hr className="hidden lg:block border-gray-700 border-t w-full" />
               </div>
               
               {/* Text 2 */}
@@ -247,7 +291,7 @@ export default function TransactionsSection() {
               
               {/* Line 3 */}
               <div className="relative">
-                <hr className="hidden lg:block border-gray-700 border-t lg:w-[calc(100%+8rem)] lg:ml-[-4rem] xl:w-[calc(100%+11.7rem)] xl:ml-[-6rem]" />
+                <hr className="hidden lg:block border-gray-700 border-t w-full" />
               </div>
               
               {/* Text 3 */}
@@ -257,7 +301,7 @@ export default function TransactionsSection() {
               
               {/* Line 4 */}
               <div className="relative">
-                <hr className="hidden lg:block border-gray-700 border-t lg:w-[calc(100%+8rem)] lg:ml-[-4rem] xl:w-[calc(100%+11.7rem)] xl:ml-[-6rem]" />
+                <hr className="hidden lg:block border-gray-700 border-t w-full" />
               </div>
             </div>
           </div>
@@ -278,7 +322,7 @@ export default function TransactionsSection() {
             <div className="hidden lg:block space-y-1 mt-15">
               {/* Line 1 */}
               <div className="relative">
-                <hr className="border-gray-700 border-t lg:w-[calc(100%+6rem)] lg:ml-[-3rem] xl:w-[calc(100%+8rem)] xl:ml-[-6rem]" />
+                <hr className="border-gray-700 border-t w-full" />
               </div>
               
               {/* Empty Text Space 1 */}
@@ -288,7 +332,7 @@ export default function TransactionsSection() {
               
               {/* Line 2 */}
               <div className="relative">
-                <hr className="border-gray-700 border-t lg:w-[calc(100%+6rem)] lg:ml-[-3rem] xl:w-[calc(100%+8rem)] xl:ml-[-6rem]" />
+                <hr className="border-gray-700 border-t w-full" />
               </div>
               
               {/* Empty Text Space 2 */}
@@ -298,7 +342,7 @@ export default function TransactionsSection() {
               
               {/* Line 3 */}
               <div className="relative">
-                <hr className="border-gray-700 border-t lg:w-[calc(100%+6rem)] lg:ml-[-3rem] xl:w-[calc(100%+8rem)] xl:ml-[-6rem]" />
+                <hr className="border-gray-700 border-t w-full" />
               </div>
               
               {/* Empty Text Space 3 */}
@@ -308,7 +352,7 @@ export default function TransactionsSection() {
               
               {/* Line 4 */}
               <div className="relative">
-                <hr className="border-gray-700 border-t lg:w-[calc(100%+6rem)] lg:ml-[-3rem] xl:w-[calc(100%+8rem)] xl:ml-[-6rem]" />
+                <hr className="border-gray-700 border-t w-full" />
               </div>
             </div>
           </div>
@@ -316,12 +360,20 @@ export default function TransactionsSection() {
         </div>
         </div>
       </div>
-    </section>
+    </motion.section>
 
-    {/* Third Transaction Section - Phone 3 */}
-    <section className="bg-black text-white w-full overflow-x-hidden">
+    {/* Third Transaction Section - Phone 3 - SLIDES FROM BOTTOM */}
+    <motion.section 
+      className="bg-black text-white w-full overflow-hidden sticky top-0 h-full"
+      style={{ 
+        y: card3Y,
+        scale: card3Scale,
+        opacity: card3Opacity,
+        zIndex: 3
+      }}
+    >
       <div className="px-4 md:px-4 lg:px-8 py-6 mt-6 lg:mt-15">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto w-full px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-0 items-start">
           
           {/* Center Section - Phone Image (First on mobile) */}
@@ -372,7 +424,7 @@ export default function TransactionsSection() {
             <div className="space-y-1 mt-4">
               {/* Line 1 */}
               <div className="relative">
-                <hr className="hidden lg:block border-gray-700 border-t lg:w-[calc(100%+8rem)] lg:ml-[-4rem] xl:w-[calc(100%+11.7rem)] xl:ml-[-6rem]" />
+                <hr className="hidden lg:block border-gray-700 border-t w-full" />
               </div>
               
               {/* Text 1 */}
@@ -382,7 +434,7 @@ export default function TransactionsSection() {
               
               {/* Line 2 */}
               <div className="relative">
-                <hr className="hidden lg:block border-gray-700 border-t lg:w-[calc(100%+8rem)] lg:ml-[-4rem] xl:w-[calc(100%+11.7rem)] xl:ml-[-6rem]" />
+                <hr className="hidden lg:block border-gray-700 border-t w-full" />
               </div>
               
               {/* Text 2 */}
@@ -392,7 +444,7 @@ export default function TransactionsSection() {
               
               {/* Line 3 */}
               <div className="relative">
-                <hr className="hidden lg:block border-gray-700 border-t lg:w-[calc(100%+8rem)] lg:ml-[-4rem] xl:w-[calc(100%+11.7rem)] xl:ml-[-6rem]" />
+                <hr className="hidden lg:block border-gray-700 border-t w-full" />
               </div>
             </div>
           </div>
@@ -405,7 +457,7 @@ export default function TransactionsSection() {
             </h3>
             
             {/* Paragraph */}
-            <p className="text-sm text-gray-300 leading-relaxed mt-2 md:mt-6 ">
+            <p className="text-sm text-gray-300 leading-relaxed mt-2 md:mt-6">
               A whole world of investing is just a few taps away: diversify your financial portfolio with effortless and affordable access to U.S. stocks no matter where you live.7 We make it easy to track your net worth at a glance with your securities, cryptocurrencies, and US dollar savings all in one app.
             </p>
             
@@ -413,7 +465,7 @@ export default function TransactionsSection() {
             <div className="hidden lg:block space-y-1 mt-12">
               {/* Line 1 */}
               <div className="relative">
-                <hr className="border-gray-700 border-t lg:w-[calc(100%+6rem)] lg:ml-[-3rem] xl:w-[calc(100%+8rem)] xl:ml-[-6rem]" />
+                <hr className="border-gray-700 border-t w-full" />
               </div>
               
               {/* Empty Text Space 1 */}
@@ -423,7 +475,7 @@ export default function TransactionsSection() {
               
               {/* Line 2 */}
               <div className="relative">
-                <hr className="border-gray-700 border-t lg:w-[calc(100%+6rem)] lg:ml-[-3rem] xl:w-[calc(100%+8rem)] xl:ml-[-6rem]" />
+                <hr className="border-gray-700 border-t w-full" />
               </div>
               
               {/* Empty Text Space 2 */}
@@ -433,7 +485,7 @@ export default function TransactionsSection() {
               
               {/* Line 3 */}
               <div className="relative">
-                <hr className="border-gray-700 border-t lg:w-[calc(100%+6rem)] lg:ml-[-3rem] xl:w-[calc(100%+8rem)] xl:ml-[-6rem]" />
+                <hr className="border-gray-700 border-t w-full" />
               </div>
             </div>
           </div>
@@ -441,12 +493,20 @@ export default function TransactionsSection() {
         </div>
         </div>
       </div>
-    </section>
+    </motion.section>
 
-    {/* Fourth Transaction Section - Phone 4 */}
-    <section className="bg-black text-white w-full overflow-x-hidden">
+    {/* Fourth Transaction Section - Phone 4 - SLIDES FROM BOTTOM */}
+    <motion.section 
+      className="bg-black text-white w-full overflow-hidden sticky top-0 h-screen"
+      style={{ 
+        y: card4Y,
+        scale: card4Scale,
+        opacity: card4Opacity,
+        zIndex: 4
+      }}
+    >
       <div className="px-4 md:px-4 lg:px-8 py-6 mt-6 lg:mt-15">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto w-full px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-0 items-start">
           
           {/* Center Section - Phone Image (First on mobile) */}
@@ -497,7 +557,7 @@ export default function TransactionsSection() {
             <div className="space-y-1 mt-4">
               {/* Line 1 */}
               <div className="relative">
-                <hr className="hidden lg:block border-gray-700 border-t lg:w-[calc(100%+8rem)] lg:ml-[-4rem] xl:w-[calc(100%+11.7rem)] xl:ml-[-6rem]" />
+                <hr className="hidden lg:block border-gray-700 border-t w-full" />
               </div>
               
               {/* Text 1 */}
@@ -507,7 +567,7 @@ export default function TransactionsSection() {
               
               {/* Line 2 */}
               <div className="relative">
-                <hr className="hidden lg:block border-gray-700 border-t lg:w-[calc(100%+8rem)] lg:ml-[-4rem] xl:w-[calc(100%+11.7rem)] xl:ml-[-6rem]" />
+                <hr className="hidden lg:block border-gray-700 border-t w-full" />
               </div>
             </div>
           </div>
@@ -528,7 +588,7 @@ export default function TransactionsSection() {
             <div className="hidden lg:block space-y-1 mt-7">
               {/* Line 1 */}
               <div className="relative">
-                <hr className="border-gray-700 border-t lg:w-[calc(100%+6rem)] lg:ml-[-3rem] xl:w-[calc(100%+8rem)] xl:ml-[-6rem]" />
+                <hr className="border-gray-700 border-t w-full" />
               </div>
               
               {/* Empty Text Space 1 */}
@@ -538,7 +598,7 @@ export default function TransactionsSection() {
               
               {/* Line 2 */}
               <div className="relative">
-                <hr className="border-gray-700 border-t lg:w-[calc(100%+6rem)] lg:ml-[-3rem] xl:w-[calc(100%+8rem)] xl:ml-[-6rem]" />
+                <hr className="border-gray-700 border-t w-full" />
               </div>
             </div>
           </div>
@@ -546,12 +606,19 @@ export default function TransactionsSection() {
         </div>
         </div>
       </div>
-    </section>
+    </motion.section>
 
-    {/* Fifth Transaction Section - Phone 5 */}
-    <section className="bg-black text-white w-full overflow-x-hidden">
+    {/* Fifth Transaction Section - Phone 5 - SLIDES FROM BOTTOM */}
+    <motion.section 
+      className="bg-black text-white w-full sticky top-0"
+      style={{ 
+        y: card5Y,
+        opacity: card5Opacity,
+        zIndex: 5
+      }}
+    >
       <div className="px-4 md:px-4 lg:px-8 py-6 mt-6 lg:mt-15">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto w-full px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-0 items-start">
           
           {/* Center Section - Phone Image (First on mobile) */}
@@ -615,7 +682,18 @@ export default function TransactionsSection() {
         </div>
         </div>
       </div>
-    </section>
-    </>
+    </motion.section>
+    
+    {/* Hidden scrollbar styles */}
+    <style jsx>{`
+      .hide-scrollbar {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+    `}</style>
+    </div>
   );
 }

@@ -1,10 +1,31 @@
+"use client";
+
 import { Facebook, Instagram, Linkedin, Twitter, Youtube, ArrowUp, ArrowDown } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import AppStoreButton from "./AppStoreButton";
 import GooglePlayButton from "./GooglePlayButton";
 
 export default function Footer() {
+  const footerRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: footerRef,
+    offset: ["start end", "end start"]
+  });
+
+  // Footer entrance animation
+  const footerY = useTransform(scrollYProgress, [0, 0.5], [100, 0]);
+  const footerOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+
   return (
-    <footer className="bg-black text-gray-300">
+    <motion.footer 
+      ref={footerRef}
+      className="bg-black text-gray-300"
+      style={{
+        y: footerY,
+        opacity: footerOpacity
+      }}
+    >
       <div className="px-4 md:px-4 lg:px-8 py-6 sm:py-8 md:py-12 lg:py-20">
         <div className="mx-auto max-w-7xl space-y-4 sm:space-y-6 md:space-y-8">
            {/*  Moving Carousel - Mobile Safe (No Horizontal Scroll) */}
@@ -272,6 +293,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }
