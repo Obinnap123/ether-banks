@@ -27,6 +27,10 @@ export default function FutureBankSection() {
         <motion.div 
           className="flex flex-col w-full lg:w-1/2 mb-6 lg:mb-0"
           style={{ y: imageY }}
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           {/* Main Heading above Image, left-aligned and aligned with image's left edge */}
           <h2 className="text-xl md:text-2xl font-bold text-left uppercase mb-4 ml-0 lg:ml-[40px] xl:ml-12">
@@ -48,6 +52,10 @@ export default function FutureBankSection() {
         <motion.div 
           className="flex flex-col items-start lg:items-start text-left w-full lg:w-1/2"
           style={{ y: textY }}
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
         >
           {/* Horizontal Line and Section Label grouped together at the top */}
           <div className="w-full mb-8 lg:mb-13">

@@ -26,10 +26,16 @@ export default function Footer() {
         opacity: footerOpacity
       }}
     >
-      <div className="px-4 md:px-4 lg:px-8 py-6 sm:py-8 md:py-12 lg:py-20">
+      <div className="px-4 md:px-4 lg:px-8 py-6 sm:py-8 md:py-12 lg:py-20 ">
         <div className="mx-auto max-w-7xl space-y-4 sm:space-y-6 md:space-y-8">
            {/*  Moving Carousel - Mobile Safe (No Horizontal Scroll) */}
-      <div className="overflow-hidden pb-2 sm:pb-3">
+      <motion.div 
+        className="overflow-hidden pb-2 sm:pb-3"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+      >
         <div className="animate-marquee inline-flex items-center space-x-4 sm:space-x-6 md:space-x-8 lg:space-x-12 whitespace-nowrap">
           <span className="text-xs text-gray-400">Price at Xapo Bank</span>
           <span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-medium flex items-center space-x-1 sm:space-x-2">
@@ -72,10 +78,16 @@ export default function Footer() {
             </span>
           </span>
         </div>
-      </div>
+      </motion.div>
 
        {/* 🔹 Horizontal rules + Back to top - Hidden on mobile for cleaner UX */}
-      <div className="hidden sm:flex sm:flex-row items-start justify-between gap-6 md:gap-8 lg:gap-16">
+      <motion.div 
+        className="hidden sm:flex sm:flex-row items-start justify-between gap-6 md:gap-8 lg:gap-16"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+      >
         <div className="w-full sm:w-1/3">
           <hr className="border-gray-700" />
         </div>
@@ -95,10 +107,16 @@ export default function Footer() {
             </a>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Links Grid - Ultra Responsive with Hover Effects */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8 text-xs sm:text-sm">
+      <motion.div 
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8 text-xs sm:text-sm"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
         <div>
           <h3 className="font-semibold mb-2 sm:mb-3 text-white">Banking</h3>
           <ul className="space-y-1 sm:space-y-2">
@@ -152,17 +170,30 @@ export default function Footer() {
             <li><a href="#" className="hover:text-white transition-colors duration-200">Gibraltar Scheme</a></li>
           </ul>
         </div>
-      </div>
+      </motion.div>
         </div>
       </div>
 
       {/* Modern Mobile-First Footer Section - Clean Left Alignment - FULL WIDTH */}
-      <div className="w-full" style={{ backgroundColor: 'rgba(2, 7, 11, 1)' }}>
+      <motion.div 
+        className="w-full" 
+        style={{ backgroundColor: 'rgba(2, 7, 11, 1)' }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+      >
         <div className="px-4 md:px-4 lg:px-8 pb-2 sm:pb-3 pt-6 sm:pt-8 md:pt-12 lg:pt-20">
           <div className="mx-auto max-w-7xl">
         
         {/* Mobile: Clean stacked layout with consistent left alignment */}
-        <div className="block sm:hidden space-y-6 mt-4 mb-8">
+        <motion.div 
+          className="block sm:hidden space-y-6 mt-4 mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
           
           {/* Address - Left aligned with location icon */}
           <div className="flex items-start space-x-3">
@@ -202,10 +233,17 @@ export default function Footer() {
             <GooglePlayButton />
           </div>
           
-        </div>
+        </motion.div>
 
         {/* Tablet+ : Original horizontal layout with proper spacing */}
-        <div className="hidden sm:flex sm:items-center sm:justify-between gap-6 md:gap-8 border border-gray-600 rounded-lg p-4 md:p-6 mt-6 md:mt-10 mb-4 md:mb-8" style={{ backgroundColor: 'rgba(128, 158, 179, 0.12)' }}>
+        <motion.div 
+          className="hidden sm:flex sm:items-center sm:justify-between gap-6 md:gap-8 border border-gray-600 rounded-lg p-4 md:p-6 mt-6 md:mt-10 mb-4 md:mb-8" 
+          style={{ backgroundColor: 'rgba(128, 158, 179, 0.12)' }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+        >
           <div className="flex items-start space-x-3">
             <img 
               src="/location-img.png" 
@@ -238,16 +276,29 @@ export default function Footer() {
             <AppStoreButton />
             <GooglePlayButton />
           </div>
-        </div>
+        </motion.div>
         
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Legal text - Fixed mobile horizontal scroll - FULL WIDTH */}
-      <div className="w-full" style={{ backgroundColor: 'rgba(14, 14, 14, 1)', borderTop: '1px solid rgba(14, 14, 14, 1)', color: 'rgba(194, 194, 194, 1)' }}>
+      <motion.div 
+        className="w-full" 
+        style={{ backgroundColor: 'rgba(14, 14, 14, 1)', borderTop: '1px solid rgba(14, 14, 14, 1)', color: 'rgba(194, 194, 194, 1)' }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, delay: 0.6 }}
+      >
         <div className="px-4 md:px-4 lg:px-8 pt-6">
-          <div className="mx-auto max-w-7xl text-xs space-y-4 leading-relaxed">
+          <motion.div 
+            className="mx-auto max-w-7xl text-xs space-y-4 leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+          >
         <p>
           <sup>1</sup>Eligible fiat deposits are protected by the Gibraltar Deposit Guarantee Scheme up to a maximum of the US Dollar equivalent of EUR 100,000 (subject to prevailing exchange rates on the compensation date). Bitcoin deposits are not covered by the Gibraltar Deposit Guarantee Scheme.
         </p>
@@ -273,7 +324,7 @@ export default function Footer() {
           *Crypto asset services are provided by Xapo Vasp Limited, a company regulated by the Gibraltar Financial Services Commission as a 'Distributed Ledger Technology Provider' under Permission No. 26061 and not by Xapo Bank Limited. Xapo Bank Limited provides services exclusively in respect of fiat balances. Crypto asset deposits are not covered by the Gibraltar Deposit Guarantee Scheme.
         </p>
         <p>
-          *For more information on the security features available at Xapo Bank Limited and Xapo Vasp Limited, please visit: https://www.xapobank.com/en/blog/banking-your-btc
+          *For more information on the security features available at Xapo Bank Limited and Xapo Vasp Limited, please visit: https://www.xapobank.com/en/blog/banking-your-btc  
         </p>
         <div className="pt-5">
           <p>
@@ -290,9 +341,9 @@ export default function Footer() {
           Xapo VASP Limited is a company registered and incorporated in Gibraltar with company No. 118088 and regulated by the Gibraltar Financial Services Commission under the Financial Services Act 2019 as a 'DLT institution' under Permission No. 26061.
         </p>
         <p>© Xapo Holdings Limited 2025. All Rights Reserved.</p>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </motion.footer>
   );
 }
